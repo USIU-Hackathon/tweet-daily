@@ -1,50 +1,32 @@
-CREATE TABLE member(
-	mid int primary key auto_increment,
-	first_name varchar(20),
-	last_name varchar(20),
-	institution varchar(50),
-	age int,
-	date_time timestamp default current_timestamp,
-	github varchar(50),
-	role int
+CREATE TABLE user(
+	uid int primary key auto_increment,
+	first_name varchar(40),
+	last_name varchar(40),
+	email varchar(50),
+	username varchar(100),
+	password varchar(50),
+	date_time timestamp default current_timestamp
 );
 
-CREATE TABLE challenge(
-	cid int primary key auto_increment,
-	name varchar(50),
-	descr text
+CREATE TABLE handle(
+	haid int primary key auto_increment,
+	uid int,
+	handle varchar(50),
+	foreign key(uid) references user(uid)
 );
 
-CREATE TABLE solution(
-	sid int primary key auto_increment,
-	mid int,
-	filename varchar(200),
-	output text,
-	date_time timestamp default current_timestamp,
-	foreign key(mid) references member(mid)
+CREATE TABLE hashtag(
+	hid int primary key auto_increment,
+	uid int,
+	hashtag varchar(100),
+	foreign key(uid) references user(uid)
 );
 
-CREATE TABLE comment(
-	cid int primary key auto_increment,
-	mid int,
-	comment text,
-	date_time timestamp default current_timestamp,
-	foreign key(mid) references member(mid)
-);
-
-
-CREATE TABLE IF NOT EXISTS  `ci_sessions` (
-	session_id varchar(40) DEFAULT '0' NOT NULL,
-	ip_address varchar(45) DEFAULT '0' NOT NULL,
-	user_agent varchar(120) NOT NULL,
-	last_activity int(10) unsigned DEFAULT 0 NOT NULL,
-	user_data text NOT NULL,
-	PRIMARY KEY (session_id),
-	KEY `last_activity_idx` (`last_activity`)
-);
-
-CREATE TABLE email_template(
-	etid int primary key auto_increment,
-	name varchar(20),
-	html text
+CREATE TABLE tweet(
+	tid int primary key auto_increment,
+	haid int,
+	hid int,
+	tweet varchar(200),
+	url varchar(250),
+	date_time timestamp default current_timestamp
 );

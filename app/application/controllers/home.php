@@ -52,27 +52,7 @@ class Home extends CI_Controller {
 					array(
 						'field'=>'email',
 						'label'=>'Email',
-						'rules'=>'required|valid_email|is_unique[member.email]'
-					),
-					array(
-						'field'=>'phone',
-						'label'=>'Phone Number',
-						'rules'=>'is_unique[member.phone]'
-					),
-					array(
-						'field'=>'institution',
-						'label'=>'Institution/Organization',
-						'rules'=>'none'
-					),
-					array(
-						'field'=>'github',
-						'label'=>'GitHub Username',
-						'rules'=>'none'
-					),
-					array(
-						'field'=>'age',
-						'label'=>'Age',
-						'rules'=>'greater_than[7]'
+						'rules'=>'required|valid_email|is_unique[user.email]'
 					),
 					array(
 						'field'=>'password',
@@ -83,31 +63,25 @@ class Home extends CI_Controller {
 						'field'=>'password_confirm',
 						'label'=>'Confirm Password',
 						'rules'=>'required|matches[password]'
-					),
-					array(
-						'field'=>'human',
-						'label'=>'Human Test',
-						'rules'=>"required|matches[human_]"
 					)
 					);
 			$this->form_validation->set_rules($rules);
 
 			if($this->form_validation->run()){
-				if($this->member_model->register_member()){
+				if($this->user_model->register_user()){
 					#email user, later will add verification code
 					$this->load->model("email_model");
 
 					$name = $this->input->post("first_name");
 					$to_email = $this->input->post("email");
 
-					$member_count = $this->member_model->get_member_count();
-
 					$_msg['html'] = "<p>Hello {name},<br/><br/>
-Thank you for registering for our <strong>#5yrCodeJam Challenge</strong>, we're glad to have you 
-on board! You are code ninja <strong>#$member_count</strong>. See you at the challenge, when it opens.</br><br/><br/>
-Feel free to get in touch with us in case of any queries or comments.</p>
+Thank you for signing up for our service.<br/><br/>
+Regards<br/>
+</br>
+<strong>TweetDaily Team</strong></p>
 					";
-					$_msg['subject'] = "Welcome to #5yrCodeJam Challenge";
+					$_msg['subject'] = "Welcome to TweetDaily";
 
 					$msg = $_msg['html'];
 					$msg = str_replace("{name}", $name, $msg);
@@ -116,11 +90,11 @@ Feel free to get in touch with us in case of any queries or comments.</p>
 					$this->email_model->send($to_email,$subject,$msg);
 
 					#auto-login user
-					$user = $this->member_model->get_member($this->input->post("email"),TRUE);
+					$user = $this->user_model->get_user($this->input->post("email"),TRUE);
 					$this->session->set_userdata($user);
 					$this->session->set_userdata("is_logged_in",TRUE);
 
-					redirect("jam");
+					redirect("user");
 				}else{
 					#almost impossible to get here?
 				}

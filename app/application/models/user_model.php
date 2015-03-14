@@ -10,30 +10,25 @@ class User_model extends CI_Model{
 		$first_name = ucfirst(strtolower($this->input->post("first_name")));
 		$last_name = ucfirst(strtolower($this->input->post("last_name")));
 
-		$member = array(
+		$user = array(
 			"first_name" => $first_name,
 			"last_name" => $last_name,
-			"institution" => $this->input->post("institution"),
-			"age" => $this->input->post("age"),
-			"gender" => $this->input->post("gender"),
-			"phone" => $this->input->post("phone"),
-			"github" => $this->input->post("github"),
 			"email" => $this->input->post("email"),
 			"password"=> md5(md5($this->input->post("password"))) #my crude sec hack
 			);
 
-		return $this->db->insert("user",$member);
+		return $this->db->insert("user",$user);
 	}
 
 	function get_user($arg,$array=FALSE){
 		if($arg > 0){
 			#mid
-			$this->db->where("mid",$mid);
+			$this->db->where("uid",$arg);
 		}else{
 			#email assumed
 			$this->db->where("email",$arg);
 		}
-		$result = $this->db->get("member");
+		$result = $this->db->get("user");
 		if($result->num_rows > 0){
 			if($array){
 				$result = $result->result_array();
