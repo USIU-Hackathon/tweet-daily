@@ -132,12 +132,12 @@ Regards<br/>
 				if($this->form_validation->run()){
 					$email = $this->input->post("email");
 					$password = $this->input->post("password");
-					$user = $this->member_model->member_login($email,$password);
+					$user = $this->user_model->user_login($email,$password);
 					if(is_array($user)){
 						$this->session->set_userdata($user);
 						$this->session->set_userdata("is_logged_in",TRUE);
 
-						redirect("jam");
+						redirect("user");
 					}else{
 						$this->session->set_flashdata("msg","Wrong Password/Email");
 						redirect("home/user/login");

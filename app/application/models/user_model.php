@@ -47,7 +47,7 @@ class User_model extends CI_Model{
 				"password"=>md5(md5($password))
 				)
 			);
-		$result = $this->db->get("member");
+		$result = $this->db->get("user");
 		if($result->num_rows > 0){
 			$result = $result->result_array();
 			return $result[0];
