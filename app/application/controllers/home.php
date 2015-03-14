@@ -75,11 +75,8 @@ class Home extends CI_Controller {
 					$name = $this->input->post("first_name");
 					$to_email = $this->input->post("email");
 
-					$_msg['html'] = "<p>Hello {name},<br/><br/>
-Thank you for signing up for our service.<br/><br/>
-Regards<br/>
-</br>
-<strong>TweetDaily Team</strong></p>
+					$_msg['html'] = "<p>Hello {name},<br/>
+Thank you for signing up for our service. You'll enjoy it :-)</p>
 					";
 					$_msg['subject'] = "Welcome to TweetDaily";
 

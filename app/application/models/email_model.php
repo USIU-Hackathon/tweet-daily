@@ -13,8 +13,8 @@ class Email_model extends CI_Model{
 		//config html email
 		$_config['mailtype'] = "html";
 		$this->email->initialize($_config);
-		$this->data['from_email'] = "codejam@sci.website";
-		$this->data['from_name'] = "#SCICodeJam";
+		$this->data['from_email'] = "tweet@nairobi.us";
+		$this->data['from_name'] = "TweetDaily";
 		$this->data['bcc'] = "profnandaa@gmail.com"; //for debugging
 	}
 
