@@ -7,6 +7,9 @@ class User extends CI_Controller {
 		parent::__construct();
 		$this->load->model("user_model");
 		$this->data['active'] = "home";
+
+		//for now
+		redirect("home");
 	}
 
 	private function is_logged_in(){
