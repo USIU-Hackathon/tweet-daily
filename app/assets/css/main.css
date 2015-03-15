@@ -214,11 +214,17 @@ h1,h2,h3,h4,h5,h6{
 	font-style: normal;
 }
 
+.landing p{
+	font-size: 1.4em;
+	color: #aaa;
+	float: left;
+}
+
 .landing p.sub{
 	font-size: 25px;
 	font-weight: bold;
 	color: #E4267E;
-	margin: 10px 0;
+	float: left;
 }
 
 .landing p.call{
@@ -240,12 +246,6 @@ h1,h2,h3,h4,h5,h6{
 	float: left;
 }
 
-
-.landing p{
-	font-size: 1.4em;
-	color: #aaa;
-	float: left;
-}
 
 .landing .stats{
 	color: rgb(240,79,37);

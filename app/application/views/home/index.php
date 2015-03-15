@@ -2,6 +2,12 @@
 <div class="landing">
 
 <h1>Tweet<span>Daily</span></h1>
+
+
+<!-- <p class="sub">
+	Making Twitter cool again :-)
+</p> -->
+
 <p>Do you sometimes miss on very important postings by very important 
 	people? Please put a smile on your face because your problems, will soon come 
 to and beautiful end.</p>

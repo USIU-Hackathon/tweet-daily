@@ -148,7 +148,7 @@ Thank you for signing up for our service. You'll enjoy it :-)</p>
 
 		if($mode=="logout"){
 			$this->session->sess_destroy();
-			redirect("home/user/login");
+			redirect("home");
 		}
 	}
 }
