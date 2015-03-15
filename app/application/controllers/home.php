@@ -19,6 +19,7 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
+		$this->data['user_number'] = $this->user_model->get_user_count();
 		$this->data['main'] = "home/index";
 		$this->_load_view();
 	}

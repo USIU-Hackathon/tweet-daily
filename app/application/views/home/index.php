@@ -5,6 +5,8 @@
 <p>Do you sometimes miss on very important postings by very important 
 	people? Please put a smile on your face because your problems, will soon come 
 to and beautiful end.</p>
+
+<p>So far <strong><?php echo $user_number;?> people</strong> <em>seem</em> like this service...</p>
 <p class="call">We will invite you for a beta <em>fail-fast</em> release, next week
 <?php 
 

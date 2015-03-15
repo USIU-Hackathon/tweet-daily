@@ -56,7 +56,7 @@ class User_model extends CI_Model{
 	}
 
 	function get_user_count(){
-		$result = $this->db->get("member");
+		$result = $this->db->get("user");
 		return $result->num_rows();
 	}
 }
