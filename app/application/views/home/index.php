@@ -20,7 +20,7 @@ if($this->session->userdata('first_name') == ""){
 	echo ", please sign up.</p>";
 
 	echo anchor("home/register",
-		"<i class='fa fa-thumbs-o-up'></i> Sign Up Now","class='btn btn-lg btn-warning'");
+		"<i class='fa fa-thumbs-up'></i> Sign Up Now","class='btn btn-lg btn-warning'");
 }else{
 	echo "</p>";
 	echo("<p class='em'><i class='fa fa-thumbs-o-up'></i> Thanks for <strong>Signing Up</strong>, we'll keep you posted.</p>");
