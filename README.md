@@ -10,3 +10,4 @@ Do you sometimes miss on very important postings by very important people? Pleas
 * We're forking this repo and moving it to private haven so that we can do the magic behind the doors. Sometimes, that's all you need to do. Talk less, do more.
 * We want to try out #RethinkDB, we think it looks cool.
 * We're hiring (for equity). Remember, you have to be *really good*, ready to work with self-professed perfectionists, and you got to buy into the idea. Then some passion and craziness is just perfect. Send us your resume prof@nandaa.com
+* Please sign up for our  *beta release*.
